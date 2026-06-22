@@ -1,38 +1,41 @@
-# Eduardo Terra - Web profesional v0
+# Eduardo Terra - Web editorial v0
 
-Experiencia web editorial para Eduardo Terra, psicólogo especializado en
-psicoterapia psicoanalítica breve.
+Web profesional para Eduardo Terra, psicólogo especializado en psicoterapia
+psicoanalítica breve.
 
-La dirección creativa utiliza el faro como metáfora de orientación. Esta
-versión mantiene el carácter cinematográfico, pero lo equilibra con claridad,
-confianza profesional, accesibilidad y acciones de contacto visibles.
+Esta versión abandona la estética de landing oscura y pasa a una dirección
+editorial: más espacio en blanco, tipografía como material principal,
+composición asimétrica, imágenes recortadas y movimiento mínimo.
 
-## Qué se ha refinado
+## Referencias y criterio
 
-- Hero comprensible en pocos segundos.
-- Identificación inmediata de Eduardo como psicólogo sanitario.
-- Atención presencial en Collado Villalba y la Sierra de Guadarrama.
-- Terapia online para España y Europa hispanohablante.
-- CTAs discretos para solicitar consulta, contactar y ver la modalidad online.
-- Ocho capítulos con una función informativa clara.
-- Mayor contraste, tamaño de texto e interlineado.
-- Sistema unificado de botones, radios, bordes, sombras y superficies.
-- Movimiento GSAP más lento y contenido.
-- Animaciones simplificadas en móvil.
-- Contenido visible y utilizable si GSAP no carga.
-- Formulario demo presentado como una integración pendiente, no como un error.
-- SEO local integrado de forma natural en títulos y contenidos.
+- Aesop: sobriedad, silencio visual y jerarquía tipográfica.
+- Monocle: tono editorial, estructura clara y autoridad discreta.
+- Kinfolk: espacio, madurez, pausa y composición fotográfica.
+- Minimal Gallery: retícula abierta, piezas visuales contenidas y ausencia de
+  ornamento innecesario.
+- Atelier/portfolio de autor: identidad personal, ritmo propio y composición
+  menos previsible.
 
-## Estructura
+No se copia ninguna referencia. Se toma su filosofía para evitar una web de
+psicólogo genérica.
 
-1. El malestar.
-2. El foco terapéutico.
-3. El método.
-4. La alianza terapéutica.
-5. Modalidades presencial y online.
-6. Eduardo Terra.
-7. Biblioteca privada.
-8. Contacto.
+## Qué incluye
+
+- Header sticky con menú accesible.
+- Hero editorial claro y no cinematográfico.
+- Titular principal: psicoterapia breve para comprender el foco del malestar.
+- Microdatos visibles: experiencia, duración, modalidad y enfoque.
+- Bloque conceptual sobre comprensión del malestar.
+- Explicación de psicoterapia psicoanalítica breve.
+- Áreas de acompañamiento como índice editorial, no como cards.
+- Método en secuencia numerada.
+- Sección fuerte de Eduardo con placeholder de fotografía real.
+- Cita visual sobre el iceberg.
+- Modalidades presencial y online.
+- Biblioteca privada de artículos sin comentarios.
+- Formulario demo sin envío real.
+- Footer con datos legales pendientes.
 
 ## Datos incorporados
 
@@ -45,96 +48,95 @@ confianza profesional, accesibilidad y acciones de contacto visibles.
 - Presencial en Collado Villalba, Sierra de Guadarrama y noroeste de Madrid.
 - Online para España y Europa hispanohablante.
 
-## Datos pendientes
-
-Eduardo debe facilitar o confirmar antes de publicar:
+## Datos pendientes para Eduardo
 
 - Número de colegiado.
-- Fotografía profesional.
+- Fotografía profesional editorial.
 - Teléfono.
 - Email profesional.
 - Dirección exacta de consulta.
-- Precio de las sesiones y formas de pago.
+- Precio de sesiones.
+- Formas de pago.
 - Política de cambios y cancelaciones.
-- Disponibilidad y horario de atención.
-- Titulaciones redactadas exactamente como deben mostrarse.
-- Textos legales, privacidad y política de cookies.
+- Disponibilidad y horarios.
+- Textos legales, privacidad y cookies.
+- Confirmación exacta de titulaciones y forma de nombrarlas.
 
 Los puntos de sustitución están marcados con comentarios `CLIENTE:` en
 `index.html`.
 
-## Qué debe revisar Eduardo
+## Artículos
 
-- Que la descripción del método representa fielmente su forma de trabajar.
-- Que los colectivos atendidos y la edad mínima son correctos.
-- Que las áreas geográficas y la modalidad online son exactas.
-- Que desea mostrar ambas titulaciones con esta jerarquía.
-- Que aprueba el tono editorial de los textos.
-- Que los tres temas propuestos para la biblioteca son adecuados.
-- Qué canal debe recibir las solicitudes de consulta.
+Los artículos actuales están marcados como `Próximamente`.
 
-## Biblioteca y nuevos artículos
+Para añadir uno nuevo:
 
-Los tres artículos actuales son propuestas editoriales marcadas como
-`Próximamente`; no aparentan estar publicados.
-
-Para añadir un artículo manualmente:
-
-1. Duplicar un bloque `<article class="essay">` dentro de `.essay-list`.
-2. Actualizar número, categoría, título y resumen.
-3. Cuando exista una página real, convertir el bloque en un enlace o enlazar su
-   título.
-4. Mantener la biblioteca sin comentarios ni elementos de distracción.
-
-Para una versión con publicaciones frecuentes se recomienda conectar la lista a
-un CMS sencillo.
+1. Duplicar un bloque `<article class="publication">` dentro de
+   `.publication-list`.
+2. Cambiar número, categoría y título.
+3. Si existe una página real, convertir el título o el bloque en enlace.
+4. Mantener la biblioteca sin comentarios ni elementos sociales.
 
 ## Formulario
 
-El formulario es una demostración visual:
+El formulario está en modo demo:
 
-- No envía ni almacena datos.
+- No envía datos.
+- No guarda datos.
+- No usa `localStorage`.
 - No procesa información clínica.
-- Incluye un mensaje visible explicando su estado.
-- Está preparado para conectarse a un canal definitivo y añadir antispam.
+- Muestra un aviso al enviar.
+- Está preparado para conectarse a un canal seguro.
 
-## Movimiento y accesibilidad
+Antes de conectar el formulario:
 
-GSAP y ScrollTrigger se cargan localmente desde:
+- Definir responsable del tratamiento.
+- Añadir consentimiento y política de privacidad.
+- Añadir protección antispam.
+- Enviar a un canal profesional seguro.
+- Evitar recoger información clínica sensible en campos abiertos.
 
-- `assets/vendor/gsap.min.js`
-- `assets/vendor/ScrollTrigger.min.js`
+## Seguridad y RGPD
 
-La web:
+- No hay claves ni tokens en el frontend.
+- No hay scripts externos innecesarios salvo Google Fonts.
+- GSAP se carga localmente desde `assets/vendor`.
+- Los datos legales se muestran como pendientes para no simular cumplimiento.
+- El formulario no transmite información en esta versión.
 
-- Respeta `prefers-reduced-motion`.
-- Reduce parallax, blur y microinteracciones en móvil.
-- Mantiene foco visible y labels asociados.
-- Usa `aria-live` para el estado del formulario.
-- Conserva todo el contenido si JavaScript o GSAP fallan.
+## Accesibilidad y rendimiento
 
-## Pasos para publicar
+- Foco visible.
+- Labels reales.
+- Menú móvil accesible con `aria-expanded`.
+- `prefers-reduced-motion` respetado.
+- Sin cursor personalizado.
+- Animaciones GSAP progresivas con fallback.
+- Imágenes integradas con `alt`.
+- Diseño responsive sin dependencia de hover.
 
-1. Incorporar foto, colegiado y datos de contacto definitivos.
-2. Obtener la aprobación escrita de textos y credenciales.
-3. Conectar el formulario a un canal seguro con protección antispam.
-4. Preparar aviso legal, privacidad y cookies.
-5. Añadir dominio, hosting, correo profesional y HTTPS.
-6. Crear favicon, imagen social, canonical y datos estructurados.
-7. Convertir y optimizar la imagen del faro a WebP o AVIF.
-8. Revisar la política de consentimiento y tratamiento de datos.
-9. Probar en móviles reales y navegadores principales.
-10. Ejecutar auditorías finales de accesibilidad, SEO y Core Web Vitals.
+## Checklist antes de publicar
 
-## Abrir en local
+1. Sustituir imagen provisional por retrato real.
+2. Añadir colegiado, teléfono, email y dirección exacta.
+3. Validar textos con Eduardo.
+4. Crear aviso legal, privacidad y cookies.
+5. Conectar formulario a backend o servicio seguro.
+6. Optimizar imagen del faro y retrato a WebP/AVIF.
+7. Añadir favicon y canonical.
+8. Revisar Open Graph definitivo.
+9. Ejecutar Lighthouse y corregir métricas.
+10. Probar en móvil real.
 
-Puede abrirse directamente desde `index.html`, ya que las dependencias de
-animación son locales.
+## Desarrollo local
 
-También puede servirse mediante:
+Puede abrirse directamente desde `index.html`, porque GSAP está incluido de
+forma local.
+
+También puede servirse con:
 
 ```powershell
 npx serve -l 4173 .
 ```
 
-Después, abrir `http://127.0.0.1:4173`.
+Después abre `http://127.0.0.1:4173`.
