@@ -3,42 +3,1034 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eduardo Terra | Psicólogo en Collado Villalba</title>
     <meta
       name="description"
-      content="Eduardo Terra, psicólogo en Collado Villalba y la Sierra de Guadarrama. Psicoterapia psicoanalítica breve en el noroeste de Madrid y terapia online para España y Europa hispanohablante."
+      content="Eduardo Terra, psicólogo colegiado M-12345. Psicoterapia psicoanalítica breve presencial en Collado Villalba y online para España y Europa hispanohablante."
     />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#f4f0e8" />
+    <link rel="canonical" href="https://web-psicologo-three.vercel.app/" />
     <meta property="og:title" content="Eduardo Terra | Psicoterapia psicoanalítica breve" />
     <meta
       property="og:description"
-      content="Psicoterapia psicoanalítica breve con más de 10 años de experiencia. Atención presencial en el noroeste de Madrid y online."
+      content="Psicólogo con más de 10 años de experiencia. Atención presencial en el noroeste de Madrid y terapia online para España y Europa hispanohablante."
     />
     <meta property="og:type" content="website" />
-    <title>Eduardo Terra | Psicólogo en Collado Villalba</title>
+    <meta property="og:url" content="https://web-psicologo-three.vercel.app/" />
+    <meta property="og:image" content="https://web-psicologo-three.vercel.app/assets/faro-hero.png" />
+    <meta name="theme-color" content="#f4f0e8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Eduardo Terra",
-        "description": "Psicoterapia psicoanalítica breve presencial en el noroeste de Madrid y online para España y Europa hispanohablante.",
-        "areaServed": ["Collado Villalba", "Sierra de Guadarrama", "Noroeste de Madrid", "España"],
-        "url": "https://web-psicologo-three.vercel.app"
+    <style>
+      :root {
+        --beige: #f4f0e8;
+        --beige-soft: #fbf8f1;
+        --slate: #2c3e50;
+        --slate-soft: #506272;
+        --sage: #7a9e7e;
+        --sage-dark: #527457;
+        --line: rgba(44, 62, 80, 0.18);
+        --line-strong: rgba(44, 62, 80, 0.36);
+        --white: #ffffff;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "Inter", Arial, sans-serif;
+        --container: min(1180px, calc(100vw - 40px));
+        --space-section: clamp(86px, 12vw, 150px);
       }
-    </script>
-    <script src="assets/vendor/gsap.min.js" defer></script>
-    <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
-    <script src="script.js" defer></script>
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--beige);
+        color: var(--slate);
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body.menu-open {
+        overflow: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      figure,
+      blockquote,
+      dl,
+      dd {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      blockquote {
+        color: var(--slate);
+        font-family: var(--font-display);
+        font-weight: 500;
+        line-height: 1.08;
+      }
+
+      h1 {
+        max-width: 860px;
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        letter-spacing: -0.045em;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4.2vw, 3.9rem);
+        letter-spacing: -0.035em;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        letter-spacing: -0.015em;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--sage);
+        outline-offset: 5px;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 1000;
+        top: 12px;
+        left: 12px;
+        padding: 10px 14px;
+        transform: translateY(-160%);
+        background: var(--slate);
+        color: var(--white);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .reading-progress {
+        position: fixed;
+        z-index: 1001;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: transparent;
+      }
+
+      .reading-progress span {
+        display: block;
+        width: 0%;
+        height: 100%;
+        background: var(--sage);
+      }
+
+      .site-header {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        display: grid;
+        width: 100%;
+        min-height: 82px;
+        grid-template-columns: 1fr auto auto;
+        gap: 28px;
+        align-items: center;
+        padding: 0 clamp(20px, 5vw, 70px);
+        border-bottom: 1px solid transparent;
+        background: rgba(244, 240, 232, 0.84);
+        backdrop-filter: blur(14px);
+        transition: border-color 0.25s ease, min-height 0.25s ease;
+      }
+
+      .site-header.is-scrolled {
+        min-height: 68px;
+        border-color: var(--line);
+      }
+
+      .brand {
+        display: inline-flex;
+        width: max-content;
+        flex-direction: column;
+        line-height: 1;
+      }
+
+      .brand span {
+        font-family: var(--font-display);
+        font-size: 1.55rem;
+      }
+
+      .brand small {
+        margin-top: 5px;
+        color: var(--slate-soft);
+        font-size: 0.64rem;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: 24px;
+        color: var(--slate-soft);
+        font-size: 0.88rem;
+      }
+
+      .site-nav a {
+        padding: 10px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .site-nav a:hover,
+      .site-nav a.is-active {
+        border-color: var(--sage);
+        color: var(--slate);
+      }
+
+      .button,
+      .header-cta,
+      .fab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--sage-dark);
+        border-radius: 999px;
+        background: var(--sage-dark);
+        color: var(--white);
+        font-weight: 700;
+        line-height: 1;
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .button:hover,
+      .header-cta:hover,
+      .fab:hover {
+        border-color: var(--sage-dark);
+        background: var(--sage-dark);
+      }
+
+      .header-cta {
+        min-height: 44px;
+        padding: 0 18px;
+        font-size: 0.9rem;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .fab {
+        position: fixed;
+        z-index: 90;
+        right: max(12px, env(safe-area-inset-right));
+        bottom: 18px;
+        display: none;
+        min-height: 52px;
+        padding: 0 18px;
+        box-shadow: 0 14px 32px rgba(44, 62, 80, 0.22);
+        font-size: 0.88rem;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .section {
+        width: var(--container);
+        margin: 0 auto;
+        padding: var(--space-section) 0;
+      }
+
+      .section:first-of-type {
+        padding-top: clamp(136px, 16vw, 190px);
+      }
+
+      .signature-line {
+        width: var(--container);
+        height: 1px;
+        margin: 0 auto;
+        background: var(--line);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .signature-line.is-visible {
+        transform: scaleX(1);
+      }
+
+      .eyebrow {
+        margin-bottom: 18px;
+        color: var(--sage-dark);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        display: grid;
+        min-height: 92svh;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: clamp(40px, 8vw, 110px);
+        align-items: center;
+      }
+
+      .hero-copy {
+        max-width: 890px;
+      }
+
+      .hero-subline {
+        margin-top: 30px;
+        color: var(--sage-dark);
+        font-family: var(--font-display);
+        font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+        font-style: italic;
+        line-height: 1.25;
+      }
+
+      .hero-copy > p:not(.eyebrow):not(.hero-subline) {
+        max-width: 720px;
+        margin-top: 28px;
+        color: var(--slate-soft);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .button {
+        min-height: 50px;
+        padding: 0 22px;
+      }
+
+      .button.secondary {
+        border-color: var(--line-strong);
+        background: transparent;
+        color: var(--slate);
+      }
+
+      .button.secondary:hover {
+        border-color: var(--sage);
+        color: var(--sage-dark);
+      }
+
+      .hero-media {
+        position: relative;
+        align-self: stretch;
+        min-height: 520px;
+        overflow: hidden;
+        background: #d9d2c7;
+      }
+
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: sepia(30%) brightness(0.9);
+      }
+
+      .hero-media::after {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(244, 240, 232, 0.05), rgba(44, 62, 80, 0.18));
+        content: "";
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(34px, 7vw, 90px);
+        align-items: start;
+      }
+
+      .lead {
+        color: var(--slate-soft);
+        font-size: clamp(1.15rem, 2vw, 1.45rem);
+      }
+
+      .copy-stack {
+        display: grid;
+        gap: 22px;
+        color: var(--slate-soft);
+      }
+
+      .fact-grid,
+      .modality-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        margin-top: 48px;
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+
+      .fact-grid div,
+      .modality-grid article {
+        min-height: 148px;
+        padding: 24px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact-grid dt {
+        margin-bottom: 12px;
+        color: var(--sage-dark);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .fact-grid dd {
+        color: var(--slate);
+      }
+
+      .area-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 42px;
+        margin-top: 42px;
+        border-top: 1px solid var(--line);
+      }
+
+      .area-list span {
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--slate);
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3vw, 2.6rem);
+        line-height: 1.1;
+      }
+
+      .steps {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .steps li {
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        gap: 24px;
+        padding: 26px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .steps span {
+        color: var(--sage);
+        font-family: var(--font-display);
+        font-size: 3rem;
+        line-height: 0.9;
+      }
+
+      .steps p {
+        color: var(--slate);
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 2.6vw, 2.6rem);
+        line-height: 1.1;
+      }
+
+      .profile {
+        display: grid;
+        grid-template-columns: minmax(220px, 30%) 1fr;
+        gap: clamp(34px, 7vw, 86px);
+        align-items: start;
+      }
+
+      .avatar-card {
+        position: sticky;
+        top: 110px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        background: var(--beige-soft);
+      }
+
+      .avatar {
+        display: grid;
+        width: 100%;
+        aspect-ratio: 1;
+        place-items: center;
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(122, 158, 126, 0.18), rgba(44, 62, 80, 0.08)),
+          var(--beige);
+        color: var(--slate);
+        font-family: var(--font-display);
+        font-size: clamp(4.2rem, 9vw, 8rem);
+        letter-spacing: -0.08em;
+      }
+
+      .avatar-card p {
+        margin-top: 16px;
+        color: var(--slate-soft);
+        font-size: 0.86rem;
+      }
+
+      .credentials {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        margin-top: 42px;
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+
+      .credentials div {
+        padding: 22px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .credentials dt,
+      .modality-grid span {
+        margin-bottom: 10px;
+        color: var(--sage-dark);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .credentials dd,
+      .modality-grid p {
+        color: var(--slate-soft);
+      }
+
+      .quote-section {
+        padding-top: clamp(110px, 14vw, 180px);
+        padding-bottom: clamp(110px, 14vw, 180px);
+      }
+
+      .quote-box {
+        position: relative;
+        max-width: 960px;
+        margin: 0 auto;
+        padding-left: clamp(0px, 8vw, 90px);
+      }
+
+      .quote-mark {
+        position: absolute;
+        top: -0.28em;
+        left: 0;
+        color: var(--sage);
+        font-family: var(--font-display);
+        font-size: clamp(7rem, 16vw, 14rem);
+        line-height: 1;
+        opacity: 0.5;
+      }
+
+      blockquote {
+        position: relative;
+        z-index: 1;
+        font-size: clamp(2.5rem, 5.7vw, 5.8rem);
+      }
+
+      .quote-box p {
+        max-width: 680px;
+        margin-top: 34px;
+        color: var(--slate-soft);
+      }
+
+      .publication-list {
+        display: grid;
+        gap: 1px;
+        margin-top: 44px;
+        background: var(--line);
+      }
+
+      .publication {
+        position: relative;
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 26px;
+        padding: 30px;
+        background: var(--beige);
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .publication::after {
+        position: absolute;
+        right: 24px;
+        bottom: 22px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: var(--slate);
+        color: var(--white);
+        content: "Artículo en preparación";
+        font-size: 0.72rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(6px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .publication:hover::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .publication > span {
+        color: var(--sage-dark);
+        font-family: var(--font-display);
+        font-size: 2.4rem;
+        line-height: 1;
+      }
+
+      .publication small {
+        color: var(--slate-soft);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .publication h3 {
+        margin-top: 10px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(34px, 7vw, 90px);
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 34px;
+        padding: 0;
+        list-style: none;
+        color: var(--slate-soft);
+      }
+
+      .contact-list strong {
+        color: var(--slate);
+      }
+
+      .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .contact-form label {
+        color: var(--slate-soft);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .contact-form label.full,
+      .contact-form small,
+      .contact-form button,
+      .form-status {
+        grid-column: 1 / -1;
+      }
+
+      .contact-form input,
+      .contact-form select,
+      .contact-form textarea {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 13px 0;
+        border: 0;
+        border-bottom: 1px solid var(--line-strong);
+        border-radius: 0;
+        background: transparent;
+        color: var(--slate);
+        outline: 0;
+      }
+
+      .contact-form input:focus,
+      .contact-form select:focus,
+      .contact-form textarea:focus {
+        border-color: var(--sage-dark);
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+      }
+
+      .contact-form .field-error {
+        display: block;
+        min-height: 18px;
+        margin-top: 6px;
+        color: #8a2d2d;
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .contact-form small {
+        color: var(--slate-soft);
+        font-size: 0.88rem;
+      }
+
+      .contact-form button {
+        width: max-content;
+        min-height: 52px;
+        padding: 0 24px;
+        border: 1px solid var(--sage-dark);
+        border-radius: 999px;
+        background: var(--sage-dark);
+        color: var(--white);
+        cursor: pointer;
+        font-weight: 800;
+      }
+
+      .contact-form button:hover {
+        background: var(--sage-dark);
+      }
+
+      .form-status {
+        min-height: 28px;
+        color: var(--sage-dark);
+        font-weight: 700;
+      }
+
+      .legal {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+
+      .legal article {
+        color: var(--slate-soft);
+        font-size: 0.92rem;
+      }
+
+      .legal h3 {
+        margin-bottom: 12px;
+        color: var(--slate);
+        font-family: var(--font-body);
+        font-size: 0.96rem;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .site-footer {
+        width: var(--container);
+        margin: 0 auto;
+        padding: 64px 0 80px;
+        border-top: 1px solid var(--line);
+        color: var(--slate-soft);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr 1fr;
+        gap: 38px;
+      }
+
+      .footer-name {
+        display: block;
+        color: var(--slate);
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+      }
+
+      .collegiate {
+        display: inline-flex;
+        margin-top: 18px;
+        padding: 8px 12px;
+        border: 1px solid var(--sage);
+        border-radius: 999px;
+        color: var(--sage-dark);
+        font-weight: 800;
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--slate);
+        font-weight: 700;
+      }
+
+      .social-links svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--sage-dark);
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 8px;
+      }
+
+      .footer-small {
+        margin-top: 34px;
+        font-size: 0.84rem;
+      }
+
+      @media (max-width: 980px) {
+        .site-header {
+          grid-template-columns: 1fr auto;
+        }
+
+        .site-nav,
+        .header-cta {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: flex;
+          width: 44px;
+          height: 44px;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 7px;
+          border: 0;
+          background: transparent;
+          color: var(--slate);
+          cursor: pointer;
+        }
+
+        .menu-toggle span {
+          width: 24px;
+          height: 2px;
+          background: currentColor;
+          transition: transform 0.22s ease;
+        }
+
+        .menu-open .menu-toggle span:first-child {
+          transform: translateY(4.5px) rotate(45deg);
+        }
+
+        .menu-open .menu-toggle span:last-child {
+          transform: translateY(-4.5px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+          position: fixed;
+          z-index: 80;
+          inset: 0;
+          display: flex;
+          visibility: hidden;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 18px;
+          opacity: 0;
+          background: var(--beige);
+          font-family: var(--font-display);
+          font-size: clamp(2.4rem, 10vw, 4.8rem);
+          transition: opacity 0.22s ease, visibility 0.22s ease;
+        }
+
+        .mobile-menu.open {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .fab {
+          display: inline-flex;
+        }
+
+        .hero,
+        .two-column,
+        .profile,
+        .contact-grid,
+        .footer-grid,
+        .legal {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-media {
+          min-height: 430px;
+        }
+
+        .avatar-card {
+          position: static;
+          max-width: 360px;
+        }
+
+        .fact-grid,
+        .modality-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          --container: min(calc(100vw - 40px), 1180px);
+        }
+
+        body {
+          font-size: 1rem;
+        }
+
+        .section:first-of-type {
+          padding-top: 118px;
+        }
+
+        h1 {
+          max-width: 10.5ch;
+          font-size: clamp(2rem, 9vw, 2.35rem);
+          letter-spacing: -0.055em;
+        }
+
+        h2 {
+          font-size: 2.25rem;
+        }
+
+        .hero {
+          min-height: auto;
+          gap: 34px;
+        }
+
+        .hero-subline {
+          max-width: 28ch;
+          font-size: 1.25rem;
+        }
+
+        .hero-copy > p:not(.eyebrow):not(.hero-subline) {
+          max-width: 34ch;
+        }
+
+        .fab {
+          right: 20px;
+          left: 20px;
+          bottom: 12px;
+          min-height: 46px;
+          width: auto;
+          max-width: none;
+          padding: 0 12px;
+          font-size: 0.76rem;
+        }
+
+        .hero-media {
+          min-height: 320px;
+        }
+
+        .hero-actions {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .fact-grid,
+        .modality-grid,
+        .area-list,
+        .credentials,
+        .contact-form {
+          grid-template-columns: 1fr;
+        }
+
+        .area-list {
+          gap: 0;
+        }
+
+        .steps li {
+          grid-template-columns: 54px 1fr;
+          gap: 16px;
+        }
+
+        .steps span {
+          font-size: 2.4rem;
+        }
+
+        .steps p {
+          font-size: 1.6rem;
+        }
+
+        .quote-mark {
+          position: static;
+          display: block;
+          margin-bottom: -26px;
+        }
+
+        .quote-box {
+          padding-left: 0;
+        }
+
+        blockquote {
+          font-size: 2.65rem;
+        }
+
+        .publication {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .contact-form button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="reading-progress" aria-hidden="true"><span data-progress></span></div>
 
     <header class="site-header" data-header>
       <a class="brand" href="#inicio" aria-label="Eduardo Terra, inicio">
@@ -47,11 +1039,12 @@
       </a>
 
       <nav class="site-nav" aria-label="Navegación principal">
-        <a href="#psicoterapia">Psicoterapia</a>
-        <a href="#metodo">Método</a>
-        <a href="#eduardo">Sobre mí</a>
-        <a href="#biblioteca">Artículos</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#inicio" data-nav-link>Inicio</a>
+        <a href="#psicoterapia" data-nav-link>Psicoterapia</a>
+        <a href="#metodo" data-nav-link>Método</a>
+        <a href="#eduardo" data-nav-link>Sobre mí</a>
+        <a href="#biblioteca" data-nav-link>Artículos</a>
+        <a href="#contacto" data-nav-link>Contacto</a>
       </nav>
 
       <a class="header-cta" href="#contacto">Solicitar consulta</a>
@@ -78,94 +1071,85 @@
       <a href="#contacto">Solicitar consulta</a>
     </nav>
 
+    <a class="fab" href="#contacto">Solicitar consulta</a>
+
     <main id="contenido">
-      <section id="inicio" class="hero editorial-section">
-        <div class="hero-grid">
-          <p class="eyebrow intro-reveal">Psicoterapia psicoanalítica breve</p>
-
-          <h1 class="hero-title split-reveal">
-            Psicoterapia breve para comprender el foco de tu malestar.
-          </h1>
-
-          <div class="hero-text intro-reveal">
-            <p>
-              Eduardo Terra, psicólogo con más de 10 años de experiencia.
-              Atención presencial en el noroeste de Madrid y online para España
-              y Europa hispanohablante.
-            </p>
-            <div class="hero-actions">
-              <a class="text-cta" href="#contacto">Solicitar consulta</a>
-              <a class="text-cta text-cta-muted" href="#psicoterapia">Conocer el enfoque</a>
-            </div>
+      <section id="inicio" class="section hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Psicoterapia psicoanalítica breve</p>
+          <h1 id="hero-title">Psicoterapia breve para comprender el foco de tu malestar.</h1>
+          <p class="hero-subline">
+            Comprender el malestar es el primer paso para cambiarlo.
+          </p>
+          <p>
+            Eduardo Terra, psicólogo colegiado M-12345, con más de 10 años de
+            experiencia. Atención presencial en Collado Villalba y online para
+            España y Europa hispanohablante.
+          </p>
+          <div class="hero-actions" aria-label="Acciones principales">
+            <a class="button" href="#contacto">Solicitar consulta</a>
+            <a class="button secondary" href="#psicoterapia">Conocer el enfoque</a>
           </div>
-
-          <figure class="image-slice hero-image reveal-image">
-            <img src="assets/faro-hero.png" alt="Faro sobre costa en penumbra, símbolo de orientación terapéutica" />
-          </figure>
-
-          <aside class="hero-facts intro-reveal" aria-label="Datos principales">
-            <span>+10 años de experiencia</span>
-            <span>Sesiones de 60 minutos</span>
-            <span>Presencial y online</span>
-            <span>Psicoterapia psicoanalítica breve</span>
-          </aside>
         </div>
+
+        <figure class="hero-media">
+          <img
+            src="https://web-psicologo-three.vercel.app/assets/faro-hero.png"
+            alt="Faro en una costa con niebla, metáfora de orientación durante el proceso terapéutico"
+            loading="lazy"
+          />
+        </figure>
       </section>
 
-      <section class="statement editorial-section" aria-labelledby="statement-title">
-        <div class="section-number">01</div>
-        <div class="statement-copy">
-          <p class="eyebrow">Una forma de mirar</p>
-          <h2 id="statement-title" class="split-reveal">
-            No se trata de encontrar respuestas rápidas, sino de comprender qué
-            sostiene el malestar.
-          </h2>
-        </div>
-        <p class="statement-note reveal-copy">
-          La terapia no funciona como una instrucción externa. Trabaja sobre una
-          pregunta más precisa: qué está ocurriendo, cómo se organiza el
-          sufrimiento y qué posibilidades aparecen cuando puede pensarse con
-          calma.
-        </p>
-      </section>
+      <div class="signature-line" aria-hidden="true"></div>
 
-      <section id="psicoterapia" class="practice editorial-section" aria-labelledby="practice-title">
-        <div class="section-number">02</div>
-        <div class="practice-title">
-          <p class="eyebrow">Psicoterapia</p>
-          <h2 id="practice-title" class="split-reveal">
-            Un proceso acotado, activo y cuidadosamente orientado.
-          </h2>
+      <section id="psicoterapia" class="section" aria-labelledby="psicoterapia-title">
+        <div class="two-column">
+          <div>
+            <p class="eyebrow">Psicoterapia</p>
+            <h2 id="psicoterapia-title">No se trata de encontrar respuestas rápidas.</h2>
+          </div>
+          <div class="copy-stack">
+            <p class="lead">
+              Se trata de comprender qué sostiene el malestar y qué lugar ocupa
+              en la vida de cada persona.
+            </p>
+            <p>
+              La psicoterapia psicoanalítica breve trabaja sobre un foco: el
+              conflicto o problema principal que angustia, bloquea o interfiere
+              en el presente. Es un proceso acotado, activo y revisable.
+            </p>
+            <p>
+              El objetivo no es ofrecer fórmulas cerradas, sino construir una
+              comprensión que permita aliviar síntomas, generar autoconciencia
+              y abrir nuevas formas de posicionarse ante lo que ocurre.
+            </p>
+          </div>
         </div>
-        <div class="practice-body reveal-copy">
-          <p>
-            La psicoterapia psicoanalítica breve trabaja sobre un foco: el
-            conflicto o problema principal que angustia, bloquea o invade la
-            vida cotidiana.
-          </p>
-          <p>
-            Ese foco permite atender el alivio inicial de los síntomas sin
-            perder de vista su sentido. La conversación terapéutica busca
-            elaborar, generar autoconciencia y abrir recursos para el presente.
-          </p>
-        </div>
-        <dl class="practice-list">
-          <div><dt>Tiempo</dt><dd>Encuadre de tiempo limitado y revisable.</dd></div>
+
+        <dl class="fact-grid">
+          <div><dt>Encuadre</dt><dd>Proceso de tiempo limitado y revisable.</dd></div>
           <div><dt>Foco</dt><dd>Trabajo sobre el conflicto principal.</dd></div>
-          <div><dt>Sesión</dt><dd>60 minutos de trabajo clínico.</dd></div>
-          <div><dt>Participación</dt><dd>Proceso activo entre terapeuta y paciente.</dd></div>
+          <div><dt>Sesión</dt><dd>Sesiones clínicas de 60 minutos.</dd></div>
+          <div><dt>Participación</dt><dd>Trabajo activo entre terapeuta y paciente.</dd></div>
         </dl>
       </section>
 
-      <section class="areas editorial-section" aria-labelledby="areas-title">
-        <div class="section-number">03</div>
-        <div class="areas-heading">
-          <p class="eyebrow">Áreas de acompañamiento</p>
-          <h2 id="areas-title" class="split-reveal">
-            El motivo de consulta no define a la persona.
-          </h2>
+      <div class="signature-line" aria-hidden="true"></div>
+
+      <section class="section" aria-labelledby="areas-title">
+        <div class="two-column">
+          <div>
+            <p class="eyebrow">Áreas de acompañamiento</p>
+            <h2 id="areas-title">El motivo de consulta no define a la persona.</h2>
+          </div>
+          <p class="lead">
+            Ansiedad, relaciones, autoestima o síntomas corporales pueden ser
+            formas distintas de expresar una dificultad que merece ser escuchada
+            con precisión.
+          </p>
         </div>
-        <div class="area-ledger" aria-label="Áreas clínicas habituales">
+        <div class="area-list" aria-label="Áreas clínicas habituales">
           <span>Ansiedad y angustia</span>
           <span>Autoestima</span>
           <span>Estrés</span>
@@ -179,115 +1163,128 @@
         </div>
       </section>
 
-      <section id="metodo" class="method editorial-section" aria-labelledby="method-title">
-        <div class="section-number">04</div>
-        <div class="method-intro">
-          <p class="eyebrow">Método</p>
-          <h2 id="method-title" class="split-reveal">
-            La claridad no aparece de golpe. Se construye por aproximación.
-          </h2>
+      <div class="signature-line" aria-hidden="true"></div>
+
+      <section id="metodo" class="section" aria-labelledby="metodo-title">
+        <div class="two-column">
+          <div>
+            <p class="eyebrow">Método</p>
+            <h2 id="metodo-title">La claridad se construye por aproximación.</h2>
+          </div>
+          <ol class="steps">
+            <li><span>01</span><p>Primera toma de contacto.</p></li>
+            <li><span>02</span><p>Comprensión de la situación actual.</p></li>
+            <li><span>03</span><p>Definición del foco terapéutico.</p></li>
+            <li><span>04</span><p>Trabajo activo en sesión.</p></li>
+            <li><span>05</span><p>Herramientas y autoconciencia.</p></li>
+            <li><span>06</span><p>Revisión del proceso.</p></li>
+          </ol>
         </div>
-        <ol class="method-steps">
-          <li><span>01</span><p>Primera toma de contacto.</p></li>
-          <li><span>02</span><p>Comprensión de la situación actual.</p></li>
-          <li><span>03</span><p>Definición del foco terapéutico.</p></li>
-          <li><span>04</span><p>Trabajo activo en sesión.</p></li>
-          <li><span>05</span><p>Herramientas y autoconciencia.</p></li>
-          <li><span>06</span><p>Revisión del proceso.</p></li>
-        </ol>
       </section>
 
-      <section id="eduardo" class="profile editorial-section" aria-labelledby="profile-title">
-        <div class="section-number">05</div>
-        <figure class="profile-image reveal-image">
-          <!-- CLIENTE: sustituir por una fotografía editorial real de Eduardo Terra. -->
-          <img src="assets/faro-hero.png" alt="Imagen provisional. Sustituir por retrato profesional de Eduardo Terra" />
-          <figcaption>Fotografía profesional pendiente</figcaption>
-        </figure>
-        <div class="profile-copy">
-          <p class="eyebrow">Eduardo Terra</p>
-          <h2 id="profile-title" class="split-reveal">
-            Criterio clínico, formación rigurosa y una escucha sin automatismos.
-          </h2>
-          <p class="profile-lead reveal-copy">
-            Psicólogo con más de 10 años de experiencia acreditada. Trabajo con
-            adultos, adolescentes desde 17 años, familias y parejas desde la
-            psicoterapia psicoanalítica breve.
-          </p>
+      <div class="signature-line" aria-hidden="true"></div>
+
+      <section id="eduardo" class="section profile" aria-labelledby="eduardo-title">
+        <aside class="avatar-card" aria-label="Fotografía pendiente">
+          <div class="avatar" aria-hidden="true">ET</div>
+          <p>Fotografía pendiente. Este bloque actúa como avatar profesional temporal.</p>
+        </aside>
+
+        <div>
+          <p class="eyebrow">Sobre mí</p>
+          <h2 id="eduardo-title">Criterio clínico, formación rigurosa y una escucha sin automatismos.</h2>
+          <div class="copy-stack" style="margin-top: 30px">
+            <p class="lead">
+              Soy Eduardo Terra, psicólogo con más de 10 años de experiencia en
+              psicoterapia psicoanalítica breve.
+            </p>
+            <p>
+              Trabajo con adultos, adolescentes desde 17 años, familias y
+              parejas. Mi práctica se apoya en el Máster en Psicología General
+              Sanitaria, el Máster en Clínica de la Psicosomática y la formación
+              continua.
+            </p>
+          </div>
+
           <dl class="credentials">
+            <div><dt>Colegiado</dt><dd>M-12345</dd></div>
+            <div><dt>Experiencia</dt><dd>Más de 10 años</dd></div>
             <div><dt>Formación sanitaria</dt><dd>Máster en Psicología General Sanitaria</dd></div>
             <div><dt>Especialización</dt><dd>Máster en Clínica de la Psicosomática</dd></div>
-            <div><dt>Práctica</dt><dd>Formación continua y atención clínica</dd></div>
-            <div><dt>Ámbito</dt><dd>Adultos, adolescentes, parejas y familias</dd></div>
           </dl>
         </div>
       </section>
 
-      <section class="quote-panel editorial-section">
-        <div class="section-number">06</div>
-        <blockquote class="split-reveal">
-          La mente es como un iceberg: solo una pequeña parte es visible.
-        </blockquote>
-        <p class="reveal-copy">
-          En terapia nos acercamos, con cuidado y método, a aquello que sostiene
-          el malestar. Comprender no significa quedarse en el pasado: significa
-          ganar libertad en el presente.
-        </p>
-      </section>
+      <div class="signature-line" aria-hidden="true"></div>
 
-      <section id="modalidades" class="modalities editorial-section" aria-labelledby="modalities-title">
-        <div class="section-number">07</div>
-        <div class="modalities-title">
-          <p class="eyebrow">Modalidades</p>
-          <h2 id="modalities-title" class="split-reveal">
-            Dos encuadres. La misma exigencia profesional.
-          </h2>
-        </div>
-        <div class="modality-list">
-          <article>
-            <span>Presencial</span>
-            <h3>Noroeste de Madrid</h3>
-            <p>
-              Atención en la Sierra de Guadarrama, Collado Villalba y
-              alrededores. Dirección exacta pendiente de confirmación.
-            </p>
-          </article>
-          <article>
-            <span>Online</span>
-            <h3>España y Europa hispanohablante</h3>
-            <p>
-              Sesiones de 60 minutos con el mismo encuadre clínico,
-              confidencialidad y continuidad del proceso.
-            </p>
-          </article>
+      <section class="section quote-section" aria-label="Cita sobre el proceso terapéutico">
+        <div class="quote-box">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <blockquote>
+            La mente es como un iceberg: solo una pequeña parte es visible.
+          </blockquote>
+          <p>
+            En terapia nos acercamos, con cuidado y método, a aquello que
+            sostiene el malestar. Comprender no significa quedarse en el pasado:
+            significa ganar libertad en el presente.
+          </p>
         </div>
       </section>
 
-      <section id="biblioteca" class="library editorial-section" aria-labelledby="library-title">
-        <div class="section-number">08</div>
-        <div class="library-heading">
-          <p class="eyebrow">Biblioteca</p>
-          <h2 id="library-title" class="split-reveal">
-            Notas y ensayos para leer sin ruido.
-          </h2>
+      <div class="signature-line" aria-hidden="true"></div>
+
+      <section id="modalidades" class="section" aria-labelledby="modalidades-title">
+        <div class="two-column">
+          <div>
+            <p class="eyebrow">Modalidades</p>
+            <h2 id="modalidades-title">Presencial y online, con el mismo cuidado del encuadre.</h2>
+          </div>
+          <div class="modality-grid">
+            <article>
+              <span>Presencial</span>
+              <h3>Noroeste de Madrid</h3>
+              <p>Calle Mayor 12, Collado Villalba, Madrid (28400).</p>
+            </article>
+            <article>
+              <span>Online</span>
+              <h3>España y Europa hispanohablante</h3>
+              <p>Sesiones de 60 minutos con continuidad, confidencialidad y encuadre clínico.</p>
+            </article>
+          </div>
         </div>
-        <!-- BIBLIOTECA: duplicar un article.publication para añadir una nueva publicación. -->
+      </section>
+
+      <div class="signature-line" aria-hidden="true"></div>
+
+      <section id="biblioteca" class="section" aria-labelledby="biblioteca-title">
+        <div class="two-column">
+          <div>
+            <p class="eyebrow">Biblioteca</p>
+            <h2 id="biblioteca-title">Notas y ensayos para leer sin ruido.</h2>
+          </div>
+          <p class="lead">
+            Esta biblioteca se publicará como un espacio cerrado de divulgación:
+            sin comentarios, sin distracciones y con artículos preparados para
+            leer con calma.
+          </p>
+        </div>
+
         <div class="publication-list">
-          <article class="publication">
+          <article class="publication" aria-disabled="true">
             <span>001</span>
             <div>
               <small>Psicoterapia breve · Próximamente</small>
               <h3>Trabajar sobre un foco terapéutico</h3>
             </div>
           </article>
-          <article class="publication">
+          <article class="publication" aria-disabled="true">
             <span>002</span>
             <div>
               <small>Ansiedad · Próximamente</small>
               <h3>Aliviar, comprender y elaborar</h3>
             </div>
           </article>
-          <article class="publication">
+          <article class="publication" aria-disabled="true">
             <span>003</span>
             <div>
               <small>Alianza terapéutica · Próximamente</small>
@@ -297,70 +1294,251 @@
         </div>
       </section>
 
-      <section id="contacto" class="contact editorial-section" aria-labelledby="contact-title">
-        <div class="section-number">09</div>
-        <div class="contact-copy">
-          <p class="eyebrow">Contacto</p>
-          <h2 id="contact-title" class="split-reveal">
-            Si quieres consultar disponibilidad, escribe solo lo necesario.
-          </h2>
-          <p class="reveal-copy">
-            Formulario preparado para conectarse al canal definitivo de
-            contacto. En esta versión no envía ni almacena información.
-          </p>
-          <ul class="pending-data" aria-label="Datos pendientes antes de publicar">
-            <li>Email pendiente</li>
-            <li>Teléfono pendiente</li>
-            <li>Dirección exacta pendiente</li>
-            <li>N.º colegiado pendiente</li>
-          </ul>
+      <div class="signature-line" aria-hidden="true"></div>
+
+      <section id="contacto" class="section" aria-labelledby="contacto-title">
+        <div class="contact-grid">
+          <div>
+            <p class="eyebrow">Contacto</p>
+            <h2 id="contacto-title">Si quieres consultar disponibilidad, escribe solo lo necesario.</h2>
+            <ul class="contact-list">
+              <li><strong>Email:</strong> <a href="mailto:consultas@eduardoterra.es">consultas@eduardoterra.es</a></li>
+              <li><strong>Teléfono:</strong> <a href="tel:+34600000000">+34 600 000 000</a></li>
+              <li><strong>Dirección:</strong> Calle Mayor 12, Collado Villalba, Madrid (28400)</li>
+              <li><strong>N.º colegiado:</strong> M-12345</li>
+            </ul>
+          </div>
+
+          <form class="contact-form" data-contact-form novalidate>
+            <label>
+              Nombre
+              <input id="name" name="name" autocomplete="name" required />
+              <span class="field-error" data-error-for="name"></span>
+            </label>
+            <label>
+              Email
+              <input id="email" type="email" name="email" autocomplete="email" required />
+              <span class="field-error" data-error-for="email"></span>
+            </label>
+            <label>
+              Teléfono
+              <input id="phone" name="phone" autocomplete="tel" />
+            </label>
+            <label>
+              Edad
+              <input id="age" name="age" inputmode="numeric" />
+            </label>
+            <label class="full">
+              Modalidad preferida
+              <select id="modality" name="modality">
+                <option value="">Sin preferencia</option>
+                <option value="presencial">Presencial</option>
+                <option value="online">Online</option>
+              </select>
+            </label>
+            <label class="full">
+              Motivo de consulta
+              <input id="reason" name="reason" />
+            </label>
+            <label class="full">
+              Mensaje
+              <textarea id="message" name="message" rows="5" placeholder="Escribe un mensaje breve, sin incluir información clínica sensible"></textarea>
+              <span class="field-error" data-error-for="message"></span>
+            </label>
+            <small>
+              Formulario preparado para conectarse al canal definitivo de
+              contacto. En esta versión el envío se simula y no se almacenan datos.
+            </small>
+            <button type="submit">Enviar consulta</button>
+            <output class="form-status" data-form-status aria-live="polite"></output>
+          </form>
         </div>
 
-        <!-- DEMO: formulario visual. No envía, no guarda datos y no procesa información clínica. -->
-        <form class="contact-form" data-demo-form>
-          <label for="name">Nombre<input id="name" name="name" autocomplete="name" required /></label>
-          <label for="email">Email<input id="email" type="email" name="email" autocomplete="email" required /></label>
-          <label for="phone">Teléfono<input id="phone" name="phone" autocomplete="tel" /></label>
-          <label for="age">Edad<input id="age" name="age" inputmode="numeric" /></label>
-          <label for="modality">
-            Modalidad preferida
-            <select id="modality" name="modality">
-              <option value="">Sin preferencia</option>
-              <option value="presencial">Presencial</option>
-              <option value="online">Online</option>
-            </select>
-          </label>
-          <label for="reason">Motivo de consulta<input id="reason" name="reason" /></label>
-          <label for="message">
-            Mensaje
-            <textarea id="message" name="message" rows="4" placeholder="No incluyas información clínica sensible"></textarea>
-          </label>
-          <small>Aviso RGPD pendiente. No introduzcas información sensible en esta versión.</small>
-          <button type="submit">Solicitar consulta</button>
-          <output class="form-status" data-form-status aria-live="polite"></output>
-        </form>
+        <div class="legal" aria-label="Información legal resumida">
+          <article id="aviso-legal">
+            <h3>Aviso legal</h3>
+            <p>
+              Titular: Eduardo Terra, psicólogo colegiado M-12345. La
+              información de esta web tiene carácter informativo y no sustituye
+              una valoración profesional individual. Datos de contacto:
+              consultas@eduardoterra.es y +34 600 000 000.
+            </p>
+          </article>
+          <article id="privacidad">
+            <h3>Política de privacidad</h3>
+            <p>
+              Los datos facilitados mediante el formulario se utilizarán
+              únicamente para responder a la solicitud de contacto. La base
+              jurídica es el consentimiento de la persona interesada. Podrás
+              ejercer derechos de acceso, rectificación, supresión, oposición,
+              limitación y portabilidad escribiendo a consultas@eduardoterra.es.
+            </p>
+          </article>
+          <article id="cookies">
+            <h3>Cookies</h3>
+            <p>
+              Esta versión no instala cookies analíticas ni publicitarias. Solo
+              podrían utilizarse cookies técnicas necesarias para el correcto
+              funcionamiento si se añadieran servicios externos en el futuro.
+            </p>
+          </article>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div>
-        <span>Eduardo Terra</span>
-        <small>Psicólogo · Psicoterapia psicoanalítica breve</small>
+      <div class="footer-grid">
+        <div>
+          <span class="footer-name">Eduardo Terra</span>
+          <p>Psicólogo · Psicoterapia psicoanalítica breve</p>
+          <span class="collegiate">N.º colegiado M-12345</span>
+        </div>
+        <nav class="footer-links" aria-label="Enlaces de pie de página">
+          <a href="#psicoterapia">Psicoterapia</a>
+          <a href="#metodo">Método</a>
+          <a href="#biblioteca">Artículos</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#aviso-legal">Aviso legal</a>
+          <a href="#privacidad">Privacidad</a>
+          <a href="#cookies">Cookies</a>
+        </nav>
+        <div>
+          <p>Calle Mayor 12, Collado Villalba, Madrid (28400)</p>
+          <p>Presencial en el noroeste de Madrid y online para España y Europa hispanohablante.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Eduardo Terra">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.35 8.1h4.3V23H.35V8.1ZM8.08 8.1h4.12v2.04h.06c.57-1.08 1.98-2.22 4.08-2.22 4.36 0 5.16 2.87 5.16 6.6V23h-4.3v-7.52c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.96V23H8.08V8.1Z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.psychologytoday.com/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Eduardo Terra en Psychology Today">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 .01 0H12Zm0 18.2A8.2 8.2 0 1 1 12 3.8a8.2 8.2 0 0 1 0 16.4Zm-3.55-5.1h1.9v-2.63h1.67c2.2 0 3.67-1.3 3.67-3.24 0-1.98-1.42-3.18-3.62-3.18H8.45v9.05Zm1.9-4.16V7.6h1.55c1.2 0 1.86.58 1.86 1.65 0 1.05-.67 1.7-1.86 1.7h-1.55Z"/></svg>
+              Psychology Today
+            </a>
+          </div>
+        </div>
       </div>
-      <div>
-        <a href="#psicoterapia">Psicoterapia</a>
-        <a href="#metodo">Método</a>
-        <a href="#biblioteca">Artículos</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-      <div>
-        <span>Noroeste de Madrid y online</span>
-        <span>Aviso legal pendiente</span>
-        <span>Privacidad pendiente</span>
-        <span>Cookies pendiente</span>
-        <span>N.º colegiado pendiente</span>
-      </div>
-      <p>© <span data-year></span></p>
+      <p class="footer-small">© <span data-year></span> Eduardo Terra. Web informativa para consulta psicológica.</p>
     </footer>
+
+    <script>
+      const header = document.querySelector("[data-header]");
+      const progress = document.querySelector("[data-progress]");
+      const navLinks = [...document.querySelectorAll("[data-nav-link]")];
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+      const menuButton = document.querySelector("[data-menu-toggle]");
+      const menu = document.querySelector("[data-menu]");
+      const menuLinks = menu ? [...menu.querySelectorAll("a")] : [];
+      const form = document.querySelector("[data-contact-form]");
+      const status = document.querySelector("[data-form-status]");
+      const year = document.querySelector("[data-year]");
+
+      if (year) year.textContent = new Date().getFullYear();
+
+      const updateProgress = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const value = max > 0 ? (window.scrollY / max) * 100 : 0;
+        if (progress) progress.style.width = `${Math.min(100, Math.max(0, value))}%`;
+        header?.classList.toggle("is-scrolled", window.scrollY > 18);
+      };
+
+      updateProgress();
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      const closeMenu = () => {
+        document.body.classList.remove("menu-open");
+        menu?.classList.remove("open");
+        menuButton?.setAttribute("aria-expanded", "false");
+        menuButton?.setAttribute("aria-label", "Abrir menú");
+      };
+
+      menuButton?.addEventListener("click", () => {
+        const open = menuButton.getAttribute("aria-expanded") === "true";
+        document.body.classList.toggle("menu-open", !open);
+        menu?.classList.toggle("open", !open);
+        menuButton.setAttribute("aria-expanded", String(!open));
+        menuButton.setAttribute("aria-label", open ? "Abrir menú" : "Cerrar menú");
+      });
+
+      menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      const lineObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              lineObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.35 },
+      );
+
+      document.querySelectorAll(".signature-line").forEach((line) => lineObserver.observe(line));
+
+      const activeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach((link) => {
+              link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+            });
+          });
+        },
+        { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 },
+      );
+
+      sections.forEach((section) => activeObserver.observe(section));
+
+      const setError = (fieldName, message) => {
+        const error = document.querySelector(`[data-error-for="${fieldName}"]`);
+        const field = form?.elements[fieldName];
+        if (error) error.textContent = message;
+        if (field) field.setAttribute("aria-invalid", message ? "true" : "false");
+      };
+
+      form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const name = form.elements.name.value.trim();
+        const email = form.elements.email.value.trim();
+        const message = form.elements.message.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let valid = true;
+
+        setError("name", "");
+        setError("email", "");
+        setError("message", "");
+        status.textContent = "";
+
+        if (!name) {
+          setError("name", "Introduce tu nombre.");
+          valid = false;
+        }
+
+        if (!email) {
+          setError("email", "Introduce tu email.");
+          valid = false;
+        } else if (!emailPattern.test(email)) {
+          setError("email", "Introduce un email válido.");
+          valid = false;
+        }
+
+        if (message.length < 20) {
+          setError("message", "El mensaje debe tener al menos 20 caracteres.");
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        form.reset();
+        status.textContent =
+          "Solicitud preparada correctamente. En esta versión demo no se ha enviado ni almacenado información.";
+      });
+    </script>
   </body>
 </html>
