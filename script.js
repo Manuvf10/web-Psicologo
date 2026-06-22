@@ -183,39 +183,6 @@ if (!reduceMotion && window.gsap && window.ScrollTrigger) {
     scrollTrigger: { trigger: ".essay-list", start: "top 78%", once: true },
   });
 
-  const dot = document.querySelector(".cursor-dot");
-  const ring = document.querySelector(".cursor-ring");
-  if (
-    dot &&
-    ring &&
-    !compactMotion &&
-    window.matchMedia("(pointer: fine)").matches
-  ) {
-    document.body.classList.add("has-custom-cursor");
-
-    window.addEventListener("mousemove", (event) => {
-      gsap.set(dot, { x: event.clientX, y: event.clientY });
-      gsap.to(ring, { x: event.clientX, y: event.clientY, duration: 0.3 });
-    });
-    document.querySelectorAll("a, button, input, textarea, select").forEach((item) => {
-      item.addEventListener("mouseenter", () => ring.classList.add("is-active"));
-      item.addEventListener("mouseleave", () => ring.classList.remove("is-active"));
-    });
-  }
-
-  if (!compactMotion) document.querySelectorAll(".magnetic").forEach((item) => {
-    item.addEventListener("mousemove", (event) => {
-      const rect = item.getBoundingClientRect();
-      gsap.to(item, {
-        x: (event.clientX - rect.left - rect.width / 2) * 0.14,
-        y: (event.clientY - rect.top - rect.height / 2) * 0.14,
-        duration: 0.35,
-      });
-    });
-    item.addEventListener("mouseleave", () => {
-      gsap.to(item, { x: 0, y: 0, duration: 0.45, ease: "elastic.out(1, .45)" });
-    });
-  });
 } else {
   document.querySelectorAll(".title-line > span").forEach((line) => {
     line.style.transform = "none";
